@@ -6,17 +6,20 @@ no HTML editing required. build.py imports RESUME from here.
 RESUME = {
     "name": "Cody Glad",
     "title": "Embedded Systems / Firmware Engineer",
-    "tagline": "I approach code development as a craftsman and hold myself to rigorous standards of cleanliness, "
-    "readability, maintainability and long term usefulness",
+    "tagline": "I approach code development as a craftsman.<br><br> "
+    "Cleanliness, readability, maintainability and long term usefulness are my highest priorties",
     "location": "West Jordan, UT",
     "email": "codymglad@gmail.com",
-    "github": "https://github.com/yourusername",
-    "linkedin": "https://linkedin.com/in/yourusername",
+    "github": "https://github.com/zerihemla",
+    "linkedin": "https://www.linkedin.com/in/cody-glad-903821149/",
 
     "about": (
-        "I write firmware for microcontrollers and the desktop software "
-        "that pairs with it. Most days that means C on an STM32 target "
-        "and Python on the host side, talking to each other over a wire."
+        "I build things that have to work reliably in the real world.<br><br>"
+         "I have worked on the full firmware stack, from architecting real-time systems to writing low-level drivers<br><br>" 
+         "My experience spans the full embedded system spectrum. From designing PCBs, building prototypes, and creating the tools that make those systems easier to test and understand.<br><br>"
+         "I’m drawn to difficult problems where the boundaries between disciplines disappear.<br><br>"
+         "I care deeply about the details that turn working code into dependable engineering, Namely:<br>"
+         "- Clean architecture,<br> - Readable code, <br>- Thoughtful interfaces,<br>- Systems built to last"
     ),
 
     # Rendered as labeled component groups, not a flat cloud of tags.

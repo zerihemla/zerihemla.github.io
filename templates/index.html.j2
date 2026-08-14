@@ -91,12 +91,29 @@
     </div>
   </section>
 
-  <section class="node" id="personal_interests">
+  <section class="node" id="education">
     <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">PERSONAL_INTERESTS</h3>
-    <div class="personal_interests-list">
-      {% for i in resume.personal_interests %}
-      <div class="personal_interests-item reveal">
+    <h3 class="section-label">EDUCATION</h3>
+    <div class="education-list">
+      {% for edu in resume.education %}
+      <div class="education-item reveal">
+        <p class="exp-period">{{ edu.period }}</p>
+        <div class="exp-body">
+          <h4>{{ edu.School }} <span class="exp-org">— {{ edu.Activities }}</span></h4>
+          <p>{{ edu.summary }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+  <section class="node" id="interests">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">PERSONAL INTERESTS</h3>
+    <div class="interests-list">
+      {% for i in resume.interests %}
+      <div class="interests-item reveal">
         <p class="exp-period">{{ i.period }}</p>
         <div class="exp-body">
           <h4>{{ i.Grouping }} <span class="exp-org">— {{ i.Activities }}</span></h4>

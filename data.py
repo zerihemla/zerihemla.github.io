@@ -5,9 +5,8 @@ no HTML editing required. build.py imports RESUME from here.
 
 RESUME = {
     "name": "Cody Glad",
-    "title": "Embedded Systems / Firmware Engineer",
-    "tagline": "I approach code development as a craftsman.<br><br> "
-    "Cleanliness, readability, maintainability and long term usefulness are my highest priorties",
+    "title": "Firmware Engineer / Embedded Systems",
+    "tagline": "I approach code development as a craftsman.",
     "location": "West Jordan, UT",
     "email": "codymglad@gmail.com",
     "github": "https://github.com/zerihemla",
@@ -18,8 +17,11 @@ RESUME = {
          "I have worked on the full firmware stack, from architecting real-time systems to writing low-level drivers<br><br>" 
          "My experience spans the full embedded system spectrum. From designing PCBs, building prototypes, and creating the tools that make those systems easier to test and understand.<br><br>"
          "I’m drawn to difficult problems where the boundaries between disciplines disappear.<br><br>"
-         "I care deeply about the details that turn working code into dependable engineering, Namely:<br>"
-         "- Clean architecture,<br> - Readable code, <br>- Thoughtful interfaces,<br>- Systems built to last"
+         "I care deeply about the details that turn working code into dependable engineering, namely:<br>"
+         "- Clean architecture<br>"
+         "- Readable code <br>"
+         "- Thoughtful interfaces<br>"
+         "- Systems built to last"
     ),
 
     # Rendered as labeled component groups, not a flat cloud of tags.
@@ -38,7 +40,7 @@ RESUME = {
         },
         {
             "label": "HOST / TOOLING",
-            "skills": ["PyQt 5/6", "GDB", "Logic Analyzers", "Oscilloscope"],
+            "skills": ["PyQt", "GDB", "Logic Analyzers", "Oscilloscope"],
         },
         {
             "label": "PLATFORM",
@@ -86,13 +88,17 @@ RESUME = {
             "role": "Firmware Engineer",
             "org": "Octavian Solutions",
             "period": "April 2025 — Present",
-            "summary": "",
+            "summary": "Architected FreeRTOS firmware Project<br>"
+            "Architected/Implimented communication protocol with Protobuf<br>"
+            "Architected/Implimented computer interface application (PyQt6)<br>"
+            "Designed a full BLE interface including SIG/custom characteristics<br>",
         },
         {
             "role": "Lead Firmware Engineer",
             "org": "Advanced Conceptions/Co-Dx",
             "period": "April 2021 - April 2025",
             "summary": "Architected FreeRTOS firmware Proejct<br>"
+            "Manged two other firmware engineers<br>"
             "Designed a pyQt5 computer application to interface with firmware<br>"
             "Implimented encryption for communication and firmware binaries<br>"
             "Implimented an abstraction layer for firmware to work across multiple boards<br>",
@@ -118,14 +124,53 @@ RESUME = {
         
     ],
 
-    "Personal Interests": [
+    "education": [
+        {
+            "School": "Weber State University",
+            "Degree": "M.S. of Computer Engineering",
+            "Year": "Fall 2018 to April 2021",
+            "GPI": "3.88",
+        },
+        {
+            "School": "Weber State University",
+            "Degree": "B.S. of Computer Engineering",
+            "Year": "Fall 2015 to December 2018",
+            "GPI": "3.66",
+        },
+        {
+            "School": "Lewis-Clark State College",
+            "Degree": "Pre=Engineering",
+            "Year": "Fall 2011 to Spring 2021",
+            "GPI": "3.95",
+        },
+    ],
+
+    "school_projects":[
+        {
+            "Name": "Custom Quadcopter",
+            "Purpose": "Senior Project",
+            "Description": "",
+        },
+        {
+            "Name": "Fall Detection System",
+            "Purpose": "Master's Project",
+            "Description": "",
+        },
+    ],
+
+
+    "interests": [
         {
             "Grouping": "Physical",
             "Activities": "Running, Weight Lifting"
         },
         {
             "Grouping": "Making",
-            "Activities": "Wood Working, Cooking, Sourdough, 3d printing"
+            "Activities": "Wood Working, Cooking, Sourdough, 3d printing",
         },
+        {
+            "Grouping": "Musical",
+            "Activities": "Singing, Ukelele, Guitar, Trumpet"
+        }
 ],
 }

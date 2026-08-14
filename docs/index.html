@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Embedded Systems / Firmware Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<div class="trace-rail" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="scope">
+    <svg viewBox="0 0 600 120" class="scope-svg" aria-hidden="true">
+      <polyline id="wave" fill="none" stroke="var(--signal)" stroke-width="2"
+        points="0,60 40,60 55,20 70,100 85,60 140,60 155,30 170,90 185,60 260,60 275,15 290,105 305,60 400,60 415,35 430,85 445,60 600,60" />
+    </svg>
+  </div>
+  <p class="eyebrow">// Layton, UT</p>
+  <h1>Your Name</h1>
+  <h2>Embedded Systems / Firmware Engineer</h2>
+  <p class="tagline">I build the software that runs closest to the metal — and the tools that talk to it.</p>
+  <div class="hero-links">
+    <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:you@example.com">you@example.com</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="node" id="about">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">ABOUT</h3>
+    <p class="about-text">I write firmware for microcontrollers and the desktop software that pairs with it. Most days that means C on an STM32 target and Python on the host side, talking to each other over a wire.</p>
+  </section>
+
+  <section class="node" id="skills">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">STACK</h3>
+    <div class="skill-groups">
+      
+      <div class="skill-group reveal">
+        <p class="skill-group-label">FIRMWARE</p>
+        <div class="skill-chips">
+          
+          <span class="chip">C</span>
+          
+          <span class="chip">STM32</span>
+          
+          <span class="chip">FreeRTOS</span>
+          
+          <span class="chip">CMSIS-RTOSv2</span>
+          
+          <span class="chip">LittleFS</span>
+          
+          <span class="chip">Bare Metal</span>
+          
+        </div>
+      </div>
+      
+      <div class="skill-group reveal">
+        <p class="skill-group-label">HOST / TOOLING</p>
+        <div class="skill-chips">
+          
+          <span class="chip">Python</span>
+          
+          <span class="chip">PyQt6</span>
+          
+          <span class="chip">Protobuf (nanopb)</span>
+          
+          <span class="chip">Serial / UART</span>
+          
+          <span class="chip">conda</span>
+          
+        </div>
+      </div>
+      
+      <div class="skill-group reveal">
+        <p class="skill-group-label">PLATFORM</p>
+        <div class="skill-chips">
+          
+          <span class="chip">Linux (Mint)</span>
+          
+          <span class="chip">Git</span>
+          
+          <span class="chip">GDB</span>
+          
+          <span class="chip">Logic Analyzers</span>
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="node" id="projects">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">PROJECTS</h3>
+    <div class="project-list">
+      
+      <article class="project-card reveal">
+        <div class="project-header">
+          <h4>Companion Desktop App</h4>
+          <span class="status status-active">Active</span>
+        </div>
+        <p class="project-stack">Python · PyQt6 · Protobuf</p>
+        <p class="project-desc">Cross-platform desktop application that talks to embedded hardware over serial using a shared protobuf message schema, for configuration, monitoring, and diagnostics.</p>
+        
+      </article>
+      
+      <article class="project-card reveal">
+        <div class="project-header">
+          <h4>LittleFS Migration</h4>
+          <span class="status status-complete">Complete</span>
+        </div>
+        <p class="project-stack">C · FreeRTOS · STM32</p>
+        <p class="project-desc">Migrated firmware storage layer from FatFS to LittleFS, with wear-leveling and performance tuning for flash-constrained targets.</p>
+        
+      </article>
+      
+      <article class="project-card reveal">
+        <div class="project-header">
+          <h4>Project Three</h4>
+          <span class="status status-complete">Complete</span>
+        </div>
+        <p class="project-stack">Add your stack</p>
+        <p class="project-desc">Swap this out for your next project.</p>
+        
+      </article>
+      
+    </div>
+  </section>
+
+  <section class="node" id="experience">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">EXPERIENCE</h3>
+    <div class="experience-list">
+      
+      <div class="experience-item reveal">
+        <p class="exp-period">20XX — Present</p>
+        <div class="exp-body">
+          <h4>Firmware Engineer <span class="exp-org">— Your Company</span></h4>
+          <p>One or two lines on scope and impact, not a task list.</p>
+        </div>
+      </div>
+      
+      <div class="experience-item reveal">
+        <p class="exp-period">20XX — 20XX</p>
+        <div class="exp-body">
+          <h4>Previous Role <span class="exp-org">— Previous Company</span></h4>
+          <p>Same — keep it to the highlight, not the full history.</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Your Name · built with Python + Jinja2 · hosted on GitHub Pages</p>
+</footer>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>

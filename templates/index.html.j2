@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ resume.name }} — {{ resume.title }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<div class="trace-rail" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="scope">
+    <svg viewBox="0 0 600 120" class="scope-svg" aria-hidden="true">
+      <polyline id="wave" fill="none" stroke="var(--signal)" stroke-width="2"
+        points="0,60 40,60 55,20 70,100 85,60 140,60 155,30 170,90 185,60 260,60 275,15 290,105 305,60 400,60 415,35 430,85 445,60 600,60" />
+    </svg>
+  </div>
+  <p class="eyebrow">// {{ resume.location }}</p>
+  <h1>{{ resume.name }}</h1>
+  <h2>{{ resume.title }}</h2>
+  <p class="tagline">{{ resume.tagline }}</p>
+  <div class="hero-links">
+    <a href="{{ resume.github }}" target="_blank" rel="noopener">GitHub</a>
+    <a href="{{ resume.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:{{ resume.email }}">{{ resume.email }}</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="node" id="about">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">ABOUT</h3>
+    <p class="about-text">{{ resume.about }}</p>
+  </section>
+
+  <section class="node" id="skills">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">STACK</h3>
+    <div class="skill-groups">
+      {% for group in resume.skill_groups %}
+      <div class="skill-group reveal">
+        <p class="skill-group-label">{{ group.label }}</p>
+        <div class="skill-chips">
+          {% for item in group.skills %}
+          <span class="chip">{{ item }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="node" id="projects">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">PROJECTS</h3>
+    <div class="project-list">
+      {% for p in resume.projects %}
+      <article class="project-card reveal">
+        <div class="project-header">
+          <h4>{{ p.name }}</h4>
+          <span class="status status-{{ p.status|lower|replace(' ', '-') }}">{{ p.status }}</span>
+        </div>
+        <p class="project-stack">{{ p.stack }}</p>
+        <p class="project-desc">{{ p.description }}</p>
+        {% if p.link %}
+        <a class="project-link" href="{{ p.link }}" target="_blank" rel="noopener">View →</a>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="node" id="experience">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">EXPERIENCE</h3>
+    <div class="experience-list">
+      {% for e in resume.experience %}
+      <div class="experience-item reveal">
+        <p class="exp-period">{{ e.period }}</p>
+        <div class="exp-body">
+          <h4>{{ e.role }} <span class="exp-org">— {{ e.org }}</span></h4>
+          <p>{{ e.summary }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>{{ resume.name }} · built with Python + Jinja2 · hosted on GitHub Pages</p>
+</footer>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>

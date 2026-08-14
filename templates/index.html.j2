@@ -57,7 +57,7 @@
 
   <section class="node" id="projects">
     <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">PROJECTS</h3>
+    <h3 class="section-label">PERSONAL PROJECTS</h3>
     <div class="project-list">
       {% for p in resume.projects %}
       <article class="project-card reveal">
@@ -90,6 +90,23 @@
       {% endfor %}
     </div>
   </section>
+
+  <section class="node" id="personal_interests">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">PERSONAL_INTERESTS</h3>
+    <div class="personal_interests-list">
+      {% for i in resume.personal_interests %}
+      <div class="personal_interests-item reveal">
+        <p class="exp-period">{{ i.period }}</p>
+        <div class="exp-body">
+          <h4>{{ i.Grouping }} <span class="exp-org">— {{ i.Activities }}</span></h4>
+          <p>{{ i.summary }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
 
 </main>
 

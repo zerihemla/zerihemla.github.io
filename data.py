@@ -4,12 +4,12 @@ no HTML editing required. build.py imports RESUME from here.
 """
 
 RESUME = {
-    "name": "Your Name",
+    "name": "Cody Glad",
     "title": "Embedded Systems / Firmware Engineer",
     "tagline": "I build the software that runs closest to the metal — "
                 "and the tools that talk to it.",
-    "location": "Layton, UT",
-    "email": "you@example.com",
+    "location": "West Jordan, UT",
+    "email": "codymglad@gmail.com",
     "github": "https://github.com/yourusername",
     "linkedin": "https://linkedin.com/in/yourusername",
 

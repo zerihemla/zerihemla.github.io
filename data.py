@@ -31,19 +31,23 @@ RESUME = {
     "skill_groups": [
         {
             "label": "LANGUAGES",
-            "skills": ["C", "Python", "Rust", "LaTeX", "Markdown", "Mermaid"],
+            "skills": ["C/C++", "Python", "Rust", "LaTeX", "Markdown", "Mermaid"],
         },
         {
             "label": "FIRMWARE",
-            "skills": ["ESP32", "STM32", "FreeRTOS", "LittleFS", "Bare Metal"],
+            "skills": ["ESP32", "STM32", "FreeRTOS", "Real-Time Systems", "LittleFS", "Low Level Drivers", "Bare Metal"],
         },
         {
             "label": "COMMUNICATION",
             "skills": ["I2C", "SPI/QSPI", "BLE", "Serial / UART", "USB", "Protobuf"],
         },
         {
+            "label": "SECURITY",
+            "skills": ["Secure OTA", "Secure Bootloader", "Encryption", "AES"],
+        },
+        {
             "label": "HOST / TOOLING",
-            "skills": ["PyQt", "GDB", "Logic Analyzers", "Oscilloscope"],
+            "skills": ["PyQt", "GDB", "Logic Analyzers", "Oscilloscope", "OpenCV/Image Processing"],
         },
         {
             "label": "PLATFORM",
@@ -51,7 +55,15 @@ RESUME = {
         },
         {
             "label": "PROTOTYPING",
-            "skills": ["Schematic Design", "Board Design", "Soldering", "Board Rework", "3D Printing", "Mechanical Design"],
+            "skills": ["Schematic Design", "Board Design", "KiCad", "Soldering", "Board Rework", "3D Printing", "Mechanical Design"],
+        },
+        {
+            "label": "TESTING",
+            "skills": ["Unit Testing", "Ceedling Test Framework", "Test Protocol Development", "Failure Analysis (RMA)"],
+        },
+        {
+            "label": "LEADERSHIP",
+            "skills": ["Team Leadership", "Engineering Management"], 
         },
     ],
 
@@ -76,13 +88,6 @@ RESUME = {
                 "Designed to exercise my control systems knowledge."
             ),
             "link": "https://github.com/zerihemla/balance_robot",
-        },
-        {
-            "name": "Project Three",
-            "status": "Complete",
-            "stack": "Add your stack",
-            "description": "Swap this out for your next project.",
-            "link": "",
         },
     ],
 
@@ -166,7 +171,7 @@ RESUME = {
     "interests": [
         {
             "grouping": "Physical",
-            "activities": "Running, Weight Lifting",
+            "activities": "Running, Weight Lifting, Wrestling my Kids",
         },
         {
             "grouping": "Making",
@@ -175,6 +180,10 @@ RESUME = {
         {
             "grouping": "Musical",
             "activities": "Singing, Ukulele, Guitar, Trumpet",
+        },
+        {
+            "grouping": "Relaxaion",
+            "activities": "TTRPGs, Board Games, Reading, VR Games",
         },
     ],
 }

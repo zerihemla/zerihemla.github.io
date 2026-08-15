@@ -5,17 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cody Glad — Firmware Engineer / Embedded Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="static/css/style.css">
+<script>
+  // Set theme before paint to avoid a flash of the wrong theme.
+  (function () {
+    var saved = localStorage.getItem('site-theme');
+    document.documentElement.setAttribute('data-theme', saved === 'terminal' ? 'terminal' : 'normal');
+  })();
+</script>
 </head>
 <body>
 
-<div class="trace-rail" aria-hidden="true"></div>
+<div class="mode-switch" role="group" aria-label="Site mode">
+  <button type="button" class="mode-btn" data-mode="normal">Normal</button>
+  <button type="button" class="mode-btn" data-mode="terminal">Developer Mode</button>
+</div>
 
-<header class="hero">
+<div class="trace-rail normal-only" aria-hidden="true"></div>
+
+<header class="hero hero-normal normal-only">
   <div class="scope">
     <svg viewBox="0 0 600 120" class="scope-svg" aria-hidden="true">
-      <polyline id="wave" fill="none" stroke="var(--signal)" stroke-width="2"
+      <polyline id="wave" fill="none" stroke="var(--accent-2)" stroke-width="2"
         points="0,60 40,60 55,20 70,100 85,60 140,60 155,30 170,90 185,60 260,60 275,15 290,105 305,60 400,60 415,35 430,85 445,60 600,60" />
     </svg>
   </div>
@@ -31,313 +43,416 @@
   </div>
 </header>
 
+<header class="hero hero-terminal terminal-only">
+  <div class="term-window hero-term">
+    <div class="term-bar">
+      <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+      <span class="term-title">guest@resume:~</span>
+    </div>
+    <div class="term-body">
+      <p class="term-line"><span class="prompt">guest@resume</span><span class="prompt-path">:~$</span> whoami</p>
+      <p class="term-output name-output">Cody Glad</p>
+
+      <p class="term-line"><span class="prompt">guest@resume</span><span class="prompt-path">:~$</span> cat role.txt</p>
+      <p class="term-output">Firmware Engineer / Embedded Systems</p>
+
+      <p class="term-line"><span class="prompt">guest@resume</span><span class="prompt-path">:~$</span> cat motto.txt</p>
+      <p class="term-output tagline">I approach code development as a craftsman.</p>
+
+      <p class="term-line"><span class="prompt">guest@resume</span><span class="prompt-path">:~$</span> ls contact/</p>
+      <p class="term-output contact-output">
+        // West Jordan, UT<br>
+        <a href="https://github.com/zerihemla" target="_blank" rel="noopener">https://github.com/zerihemla</a><br>
+        <a href="https://www.linkedin.com/in/cody-glad-903821149/" target="_blank" rel="noopener">https://www.linkedin.com/in/cody-glad-903821149/</a><br>
+        <a href="mailto:codymglad@gmail.com">codymglad@gmail.com</a>
+      </p>
+      <p class="term-line"><span class="prompt">guest@resume</span><span class="prompt-path">:~$</span> <span class="cursor">▊</span></p>
+    </div>
+  </div>
+</header>
+
 <main>
 
+  
+
   <section class="node" id="about">
-    <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">ABOUT</h3>
-    <p class="about-text">I build things that have to work reliably in the real world.<br><br>I have worked on the full firmware stack, from architecting real-time systems to writing low-level drivers.<br><br>My experience spans the full embedded system spectrum — designing PCBs, building prototypes, and creating the tools that make those systems easier to test and understand.<br><br>I'm drawn to difficult problems where the boundaries between disciplines disappear.<br><br>I care deeply about the details that turn working code into dependable engineering, namely:<br>- Clean architecture<br>- Readable code<br>- Thoughtful interfaces<br>- Systems built to last</p>
+    
+  <span class="node-dot normal-only" aria-hidden="true"></span>
+  <div class="term-bar terminal-only">
+    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+    <span class="term-title">about.sh</span>
+  </div>
+  
+    <div class="node-body">
+      <h3 class="section-label"><span class="terminal-only">$ </span>ABOUT</h3>
+      <p class="about-text">I build things that have to work reliably in the real world.<br><br>I have worked on the full firmware stack, from architecting real-time systems to writing low-level drivers.<br><br>My experience spans the full embedded system spectrum — designing PCBs, building prototypes, and creating the tools that make those systems easier to test and understand.<br><br>I'm drawn to difficult problems where the boundaries between disciplines disappear.<br><br>I care deeply about the details that turn working code into dependable engineering, namely:<br>- Clean architecture<br>- Readable code<br>- Thoughtful interfaces<br>- Systems built to last</p>
+    </div>
   </section>
 
   <section class="node" id="skills">
-    <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">STACK</h3>
-    <div class="skill-groups">
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">LANGUAGES</p>
-        <div class="skill-chips">
-          
-          <span class="chip">C</span>
-          
-          <span class="chip">Python</span>
-          
-          <span class="chip">Rust</span>
-          
-          <span class="chip">LaTeX</span>
-          
-          <span class="chip">Markdown</span>
-          
-          <span class="chip">Mermaid</span>
-          
+    
+  <span class="node-dot normal-only" aria-hidden="true"></span>
+  <div class="term-bar terminal-only">
+    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+    <span class="term-title">stack.sh</span>
+  </div>
+  
+    <div class="node-body">
+      <h3 class="section-label"><span class="terminal-only">$ </span>STACK</h3>
+      <div class="skill-groups">
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">LANGUAGES</p>
+          <div class="skill-chips">
+            
+            <span class="chip">C</span>
+            
+            <span class="chip">Python</span>
+            
+            <span class="chip">Rust</span>
+            
+            <span class="chip">LaTeX</span>
+            
+            <span class="chip">Markdown</span>
+            
+            <span class="chip">Mermaid</span>
+            
+          </div>
         </div>
-      </div>
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">FIRMWARE</p>
-        <div class="skill-chips">
-          
-          <span class="chip">ESP32</span>
-          
-          <span class="chip">STM32</span>
-          
-          <span class="chip">FreeRTOS</span>
-          
-          <span class="chip">LittleFS</span>
-          
-          <span class="chip">Bare Metal</span>
-          
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">FIRMWARE</p>
+          <div class="skill-chips">
+            
+            <span class="chip">ESP32</span>
+            
+            <span class="chip">STM32</span>
+            
+            <span class="chip">FreeRTOS</span>
+            
+            <span class="chip">LittleFS</span>
+            
+            <span class="chip">Bare Metal</span>
+            
+          </div>
         </div>
-      </div>
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">COMMUNICATION</p>
-        <div class="skill-chips">
-          
-          <span class="chip">I2C</span>
-          
-          <span class="chip">SPI/QSPI</span>
-          
-          <span class="chip">BLE</span>
-          
-          <span class="chip">Serial / UART</span>
-          
-          <span class="chip">USB</span>
-          
-          <span class="chip">Protobuf</span>
-          
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">COMMUNICATION</p>
+          <div class="skill-chips">
+            
+            <span class="chip">I2C</span>
+            
+            <span class="chip">SPI/QSPI</span>
+            
+            <span class="chip">BLE</span>
+            
+            <span class="chip">Serial / UART</span>
+            
+            <span class="chip">USB</span>
+            
+            <span class="chip">Protobuf</span>
+            
+          </div>
         </div>
-      </div>
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">HOST / TOOLING</p>
-        <div class="skill-chips">
-          
-          <span class="chip">PyQt</span>
-          
-          <span class="chip">GDB</span>
-          
-          <span class="chip">Logic Analyzers</span>
-          
-          <span class="chip">Oscilloscope</span>
-          
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">HOST / TOOLING</p>
+          <div class="skill-chips">
+            
+            <span class="chip">PyQt</span>
+            
+            <span class="chip">GDB</span>
+            
+            <span class="chip">Logic Analyzers</span>
+            
+            <span class="chip">Oscilloscope</span>
+            
+          </div>
         </div>
-      </div>
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">PLATFORM</p>
-        <div class="skill-chips">
-          
-          <span class="chip">Linux</span>
-          
-          <span class="chip">Windows</span>
-          
-          <span class="chip">Git</span>
-          
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">PLATFORM</p>
+          <div class="skill-chips">
+            
+            <span class="chip">Linux</span>
+            
+            <span class="chip">Windows</span>
+            
+            <span class="chip">Git</span>
+            
+          </div>
         </div>
-      </div>
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">PROTOTYPING</p>
-        <div class="skill-chips">
-          
-          <span class="chip">Schematic Design</span>
-          
-          <span class="chip">Board Design</span>
-          
-          <span class="chip">Soldering</span>
-          
-          <span class="chip">Board Rework</span>
-          
-          <span class="chip">3D Printing</span>
-          
-          <span class="chip">Mechanical Design</span>
-          
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">PROTOTYPING</p>
+          <div class="skill-chips">
+            
+            <span class="chip">Schematic Design</span>
+            
+            <span class="chip">Board Design</span>
+            
+            <span class="chip">Soldering</span>
+            
+            <span class="chip">Board Rework</span>
+            
+            <span class="chip">3D Printing</span>
+            
+            <span class="chip">Mechanical Design</span>
+            
+          </div>
         </div>
+        
       </div>
-      
     </div>
   </section>
 
   <section class="node" id="projects">
-    <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">PROJECTS</h3>
-    <div class="project-list">
-      
-      <article class="project-card reveal">
-        <div class="project-header">
-          <h4>GINAA (Ginna Is Not An Acronym)</h4>
-          <span class="status status-active">Active</span>
-        </div>
-        <p class="project-stack">Python · PyQt5</p>
-        <p class="project-desc">Cross-platform desktop application that generates random items, dungeons, NPCs, and quests for running TTRPGs.</p>
+    
+  <span class="node-dot normal-only" aria-hidden="true"></span>
+  <div class="term-bar terminal-only">
+    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+    <span class="term-title">projects.sh</span>
+  </div>
+  
+    <div class="node-body">
+      <h3 class="section-label"><span class="terminal-only">$ </span>PROJECTS</h3>
+      <div class="project-list">
         
-        <a class="project-link" href="https://github.com/zerihemla/ginaa" target="_blank" rel="noopener">View →</a>
+        <article class="project-card reveal">
+          <div class="project-header">
+            <h4>GINAA (Ginna Is Not An Acronym)</h4>
+            <span class="status status-active">Active</span>
+          </div>
+          <p class="project-stack">Python · PyQt5</p>
+          <p class="project-desc">Cross-platform desktop application that generates random items, dungeons, NPCs, and quests for running TTRPGs.</p>
+          
+          <a class="project-link" href="https://github.com/zerihemla/ginaa" target="_blank" rel="noopener">View Project →</a>
+          
+        </article>
         
-      </article>
-      
-      <article class="project-card reveal">
-        <div class="project-header">
-          <h4>Balance Robot</h4>
-          <span class="status status-shelved">Shelved</span>
-        </div>
-        <p class="project-stack">C · FreeRTOS · Rpi Zero</p>
-        <p class="project-desc">2-wheeled robot. Reads from IMU and moves motors in order to stay upright and maintain control.<br>Designed to exercise my control systems knowledge.</p>
+        <article class="project-card reveal">
+          <div class="project-header">
+            <h4>Balance Robot</h4>
+            <span class="status status-shelved">Shelved</span>
+          </div>
+          <p class="project-stack">C · FreeRTOS · Rpi Zero</p>
+          <p class="project-desc">2-wheeled robot. Reads from IMU and moves motors in order to stay upright and maintain control.<br>Designed to exercise my control systems knowledge.</p>
+          
+          <a class="project-link" href="https://github.com/zerihemla/balance_robot" target="_blank" rel="noopener">View Project →</a>
+          
+        </article>
         
-        <a class="project-link" href="https://github.com/zerihemla/balance_robot" target="_blank" rel="noopener">View →</a>
+        <article class="project-card reveal">
+          <div class="project-header">
+            <h4>Project Three</h4>
+            <span class="status status-complete">Complete</span>
+          </div>
+          <p class="project-stack">Add your stack</p>
+          <p class="project-desc">Swap this out for your next project.</p>
+          
+        </article>
         
-      </article>
-      
-      <article class="project-card reveal">
-        <div class="project-header">
-          <h4>Project Three</h4>
-          <span class="status status-complete">Complete</span>
-        </div>
-        <p class="project-stack">Add your stack</p>
-        <p class="project-desc">Swap this out for your next project.</p>
-        
-      </article>
-      
+      </div>
     </div>
   </section>
 
   <section class="node" id="experience">
-    <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">EXPERIENCE</h3>
-    <div class="experience-list">
-      
-      <div class="experience-item reveal">
-        <p class="exp-period">April 2025 — Present</p>
-        <div class="exp-body">
-          <h4>Firmware Engineer <span class="exp-org">— Octavian Solutions</span></h4>
-          <p>Architected FreeRTOS firmware project<br>Architected/implemented communication protocol with Protobuf<br>Architected/implemented computer interface application (PyQt6)<br>Designed a full BLE interface including SIG/custom characteristics<br></p>
+    
+  <span class="node-dot normal-only" aria-hidden="true"></span>
+  <div class="term-bar terminal-only">
+    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+    <span class="term-title">experience.log</span>
+  </div>
+  
+    <div class="node-body">
+      <h3 class="section-label"><span class="terminal-only">$ </span>EXPERIENCE</h3>
+      <div class="experience-list">
+        
+        <div class="experience-item reveal">
+          <p class="exp-period">April 2025 — Present</p>
+          <div class="exp-body">
+            <h4>Firmware Engineer <span class="exp-org">— Octavian Solutions</span></h4>
+            <p>Architected FreeRTOS firmware project<br>Architected/implemented communication protocol with Protobuf<br>Architected/implemented computer interface application (PyQt6)<br>Designed a full BLE interface including SIG/custom characteristics<br></p>
+          </div>
         </div>
-      </div>
-      
-      <div class="experience-item reveal">
-        <p class="exp-period">April 2021 - April 2025</p>
-        <div class="exp-body">
-          <h4>Lead Firmware Engineer <span class="exp-org">— Advanced Conceptions/Co-Dx</span></h4>
-          <p>Architected FreeRTOS firmware project<br>Managed two other firmware engineers<br>Designed a PyQt5 computer application to interface with firmware<br>Implemented encryption for communication and firmware binaries<br>Implemented an abstraction layer for firmware to work across multiple boards<br></p>
+        
+        <div class="experience-item reveal">
+          <p class="exp-period">April 2021 - April 2025</p>
+          <div class="exp-body">
+            <h4>Lead Firmware Engineer <span class="exp-org">— Advanced Conceptions/Co-Dx</span></h4>
+            <p>Architected FreeRTOS firmware project<br>Managed two other firmware engineers<br>Designed a PyQt5 computer application to interface with firmware<br>Implemented encryption for communication and firmware binaries<br>Implemented an abstraction layer for firmware to work across multiple boards<br></p>
+          </div>
         </div>
-      </div>
-      
-      <div class="experience-item reveal">
-        <p class="exp-period">April 2019 - April 2021</p>
-        <div class="exp-body">
-          <h4>Embedded Systems Engineer <span class="exp-org">— Eclipse Design Innovations</span></h4>
-          <p>Designed PCBs in KiCad<br>Coded firmware for embedded systems<br>Oversaw 2 other engineers<br>Published technical documentation using LaTeX<br></p>
+        
+        <div class="experience-item reveal">
+          <p class="exp-period">April 2019 - April 2021</p>
+          <div class="exp-body">
+            <h4>Embedded Systems Engineer <span class="exp-org">— Eclipse Design Innovations</span></h4>
+            <p>Designed PCBs in KiCad<br>Coded firmware for embedded systems<br>Oversaw 2 other engineers<br>Published technical documentation using LaTeX<br></p>
+          </div>
         </div>
-      </div>
-      
-      <div class="experience-item reveal">
-        <p class="exp-period">May 2018 - March 2019</p>
-        <div class="exp-body">
-          <h4>Electrical Engineer Intern <span class="exp-org">— Monnit</span></h4>
-          <p>Designed PCBs with KiCad<br>Coded firmware for embedded sensors<br>Built prototypes of embedded sensors<br>Processed RMAs to discern reason of failure<br></p>
+        
+        <div class="experience-item reveal">
+          <p class="exp-period">May 2018 - March 2019</p>
+          <div class="exp-body">
+            <h4>Electrical Engineer Intern <span class="exp-org">— Monnit</span></h4>
+            <p>Designed PCBs with KiCad<br>Coded firmware for embedded sensors<br>Built prototypes of embedded sensors<br>Processed RMAs to discern reason of failure<br></p>
+          </div>
         </div>
+        
       </div>
-      
     </div>
   </section>
 
   
   <section class="node" id="education">
-    <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">EDUCATION</h3>
-    <div class="experience-list">
-      
-      <div class="experience-item reveal">
-        <p class="exp-period">Fall 2018 to April 2021</p>
-        <div class="exp-body">
-          <h4>M.S. of Computer Engineering <span class="exp-org">— Weber State University</span></h4>
-          <p>3.88 GPA</p>
+    
+  <span class="node-dot normal-only" aria-hidden="true"></span>
+  <div class="term-bar terminal-only">
+    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+    <span class="term-title">education.sh</span>
+  </div>
+  
+    <div class="node-body">
+      <h3 class="section-label"><span class="terminal-only">$ </span>EDUCATION</h3>
+      <div class="experience-list">
+        
+        <div class="experience-item reveal">
+          <p class="exp-period">Fall 2018 to April 2021</p>
+          <div class="exp-body">
+            <h4>M.S. of Computer Engineering <span class="exp-org">— Weber State University</span></h4>
+            <p>3.88 GPA</p>
+          </div>
         </div>
-      </div>
-      
-      <div class="experience-item reveal">
-        <p class="exp-period">Fall 2015 to December 2018</p>
-        <div class="exp-body">
-          <h4>B.S. of Computer Engineering <span class="exp-org">— Weber State University</span></h4>
-          <p>3.66 GPA</p>
+        
+        <div class="experience-item reveal">
+          <p class="exp-period">Fall 2015 to December 2018</p>
+          <div class="exp-body">
+            <h4>B.S. of Computer Engineering <span class="exp-org">— Weber State University</span></h4>
+            <p>3.66 GPA</p>
+          </div>
         </div>
-      </div>
-      
-      <div class="experience-item reveal">
-        <p class="exp-period">Fall 2011 to Spring 2012</p>
-        <div class="exp-body">
-          <h4>Pre-Engineering <span class="exp-org">— Lewis-Clark State College</span></h4>
-          <p>3.95 GPA</p>
+        
+        <div class="experience-item reveal">
+          <p class="exp-period">Fall 2011 to Spring 2012</p>
+          <div class="exp-body">
+            <h4>Pre-Engineering <span class="exp-org">— Lewis-Clark State College</span></h4>
+            <p>3.95 GPA</p>
+          </div>
         </div>
+        
       </div>
-      
     </div>
   </section>
   
 
   
   <section class="node" id="school-projects">
-    <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">SCHOOL PROJECTS</h3>
-    <div class="project-list">
-      
-      <article class="project-card reveal">
-        <div class="project-header">
-          <h4>Custom Quadcopter</h4>
-          <span class="status status-school">Senior Project</span>
-        </div>
-        <p class="project-desc">Coded a flight controller from scratch.<br>The purpose of the flight controller was to keep control of the quadcoper when a weight was placed on one arm of the drone.<br></p>
-      </article>
-      
-      <article class="project-card reveal">
-        <div class="project-header">
-          <h4>Fall Detection System</h4>
-          <span class="status status-school">Master's Project</span>
-        </div>
-        <p class="project-desc">Used pressure transducers to calculate the users height.<br>Created a mesh radio network to filter out pressure changes due to ambient weather.<br>Used an IMU to detect a fall and calculate the distance fell to determine if help is needed.<br></p>
-      </article>
-      
+    
+  <span class="node-dot normal-only" aria-hidden="true"></span>
+  <div class="term-bar terminal-only">
+    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+    <span class="term-title">school_projects.sh</span>
+  </div>
+  
+    <div class="node-body">
+      <h3 class="section-label"><span class="terminal-only">$ </span>SCHOOL PROJECTS</h3>
+      <div class="project-list">
+        
+        <article class="project-card reveal">
+          <div class="project-header">
+            <h4>Custom Quadcopter</h4>
+            <span class="status status-school">Senior Project</span>
+          </div>
+          <p class="project-desc">Coded a flight controller from scratch.<br>The purpose of the flight controller was to keep control of the quadcoper when a weight was placed on one arm of the drone.<br></p>
+        </article>
+        
+        <article class="project-card reveal">
+          <div class="project-header">
+            <h4>Fall Detection System</h4>
+            <span class="status status-school">Master's Project</span>
+          </div>
+          <p class="project-desc">Used pressure transducers to calculate the users height.<br>Created a mesh radio network to filter out pressure changes due to ambient weather.<br>Used an IMU to detect a fall and calculate the distance fell to determine if help is needed.<br></p>
+        </article>
+        
+      </div>
     </div>
   </section>
   
 
   
   <section class="node" id="interests">
-    <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">INTERESTS</h3>
-    <div class="skill-groups">
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">PHYSICAL</p>
-        <div class="skill-chips">
-          
-          <span class="chip">Running</span>
-          
-          <span class="chip">Weight Lifting</span>
-          
+    
+  <span class="node-dot normal-only" aria-hidden="true"></span>
+  <div class="term-bar terminal-only">
+    <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+    <span class="term-title">interests.sh</span>
+  </div>
+  
+    <div class="node-body">
+      <h3 class="section-label"><span class="terminal-only">$ </span>INTERESTS</h3>
+      <div class="skill-groups">
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">PHYSICAL</p>
+          <div class="skill-chips">
+            
+            <span class="chip">Running</span>
+            
+            <span class="chip">Weight Lifting</span>
+            
+            <span class="chip">Wrestling my Kids</span>
+            
+          </div>
         </div>
-      </div>
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">MAKING</p>
-        <div class="skill-chips">
-          
-          <span class="chip">Woodworking</span>
-          
-          <span class="chip">Cooking</span>
-          
-          <span class="chip">Sourdough</span>
-          
-          <span class="chip">3D Printing</span>
-          
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">MAKING</p>
+          <div class="skill-chips">
+            
+            <span class="chip">Woodworking</span>
+            
+            <span class="chip">Cooking</span>
+            
+            <span class="chip">Sourdough</span>
+            
+            <span class="chip">3D Printing</span>
+            
+          </div>
         </div>
-      </div>
-      
-      <div class="skill-group reveal">
-        <p class="skill-group-label">MUSICAL</p>
-        <div class="skill-chips">
-          
-          <span class="chip">Singing</span>
-          
-          <span class="chip">Ukulele</span>
-          
-          <span class="chip">Guitar</span>
-          
-          <span class="chip">Trumpet</span>
-          
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">MUSICAL</p>
+          <div class="skill-chips">
+            
+            <span class="chip">Singing</span>
+            
+            <span class="chip">Ukulele</span>
+            
+            <span class="chip">Guitar</span>
+            
+            <span class="chip">Trumpet</span>
+            
+          </div>
         </div>
+        
+        <div class="skill-group reveal">
+          <p class="skill-group-label">RELAXAION</p>
+          <div class="skill-chips">
+            
+            <span class="chip">TTRPGs</span>
+            
+            <span class="chip">Board Games</span>
+            
+            <span class="chip">Reading</span>
+            
+            <span class="chip">VR Games</span>
+            
+          </div>
+        </div>
+        
       </div>
-      
     </div>
   </section>
   
@@ -349,5 +464,6 @@
 </footer>
 
 <script src="static/js/main.js"></script>
+<script src="static/js/theme.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
   --text-dim: #7A8290;
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'IBM Plex Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'Ubuntu Mono', monospace;
 }
 
 * { box-sizing: border-box; }
@@ -98,6 +98,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outlin
   flex-wrap: wrap;
 }
 
+.hero-phone { color: var(--text-dim); }
+
 main {
   position: relative;
   max-width: 720px;
@@ -176,6 +178,8 @@ main {
 }
 .status-active { color: var(--signal); border: 1px solid var(--signal); }
 .status-complete { color: var(--text-dim); border: 1px solid var(--panel-border); }
+.status-shelved { color: var(--copper); border: 1px solid var(--copper); }
+.status-school { color: var(--text-dim); border: 1px solid var(--panel-border); }
 .project-stack { font-family: var(--font-mono); font-size: 0.78rem; color: var(--copper); margin: 0.4rem 0 0.6rem; }
 .project-desc { margin: 0; color: var(--text-dim); }
 .project-link { display: inline-block; margin-top: 0.6rem; font-family: var(--font-mono); font-size: 0.85rem; }

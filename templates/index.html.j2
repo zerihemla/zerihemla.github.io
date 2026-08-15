@@ -24,9 +24,10 @@
   <h2>{{ resume.title }}</h2>
   <p class="tagline">{{ resume.tagline }}</p>
   <div class="hero-links">
-    <a href="{{ resume.github }}" target="_blank" rel="noopener">GitHub</a>
-    <a href="{{ resume.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+    {% if resume.github %}<a href="{{ resume.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+    {% if resume.linkedin %}<a href="{{ resume.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
     <a href="mailto:{{ resume.email }}">{{ resume.email }}</a>
+    {% if resume.phone %}<span class="hero-phone">{{ resume.phone }}</span>{% endif %}
   </div>
 </header>
 
@@ -35,7 +36,7 @@
   <section class="node" id="about">
     <span class="node-dot" aria-hidden="true"></span>
     <h3 class="section-label">ABOUT</h3>
-    <p class="about-text">{{ resume.about }}</p>
+    <p class="about-text">{{ resume.about|safe }}</p>
   </section>
 
   <section class="node" id="skills">
@@ -57,7 +58,7 @@
 
   <section class="node" id="projects">
     <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">PERSONAL PROJECTS</h3>
+    <h3 class="section-label">PROJECTS</h3>
     <div class="project-list">
       {% for p in resume.projects %}
       <article class="project-card reveal">
@@ -66,7 +67,7 @@
           <span class="status status-{{ p.status|lower|replace(' ', '-') }}">{{ p.status }}</span>
         </div>
         <p class="project-stack">{{ p.stack }}</p>
-        <p class="project-desc">{{ p.description }}</p>
+        <p class="project-desc">{{ p.description|safe }}</p>
         {% if p.link %}
         <a class="project-link" href="{{ p.link }}" target="_blank" rel="noopener">View →</a>
         {% endif %}
@@ -84,46 +85,67 @@
         <p class="exp-period">{{ e.period }}</p>
         <div class="exp-body">
           <h4>{{ e.role }} <span class="exp-org">— {{ e.org }}</span></h4>
-          <p>{{ e.summary }}</p>
+          <p>{{ e.summary|safe }}</p>
         </div>
       </div>
       {% endfor %}
     </div>
   </section>
 
+  {% if resume.education %}
   <section class="node" id="education">
     <span class="node-dot" aria-hidden="true"></span>
     <h3 class="section-label">EDUCATION</h3>
-    <div class="education-list">
-      {% for edu in resume.education %}
-      <div class="education-item reveal">
-        <p class="exp-period">{{ edu.period }}</p>
+    <div class="experience-list">
+      {% for ed in resume.education %}
+      <div class="experience-item reveal">
+        <p class="exp-period">{{ ed.period }}</p>
         <div class="exp-body">
-          <h4>{{ edu.School }} <span class="exp-org">— {{ edu.Activities }}</span></h4>
-          <p>{{ edu.summary }}</p>
+          <h4>{{ ed.degree }} <span class="exp-org">— {{ ed.school }}</span></h4>
+          {% if ed.detail %}<p>{{ ed.detail }}</p>{% endif %}
         </div>
       </div>
       {% endfor %}
     </div>
   </section>
+  {% endif %}
 
+  {% if resume.school_projects %}
+  <section class="node" id="school-projects">
+    <span class="node-dot" aria-hidden="true"></span>
+    <h3 class="section-label">SCHOOL PROJECTS</h3>
+    <div class="project-list">
+      {% for sp in resume.school_projects %}
+      <article class="project-card reveal">
+        <div class="project-header">
+          <h4>{{ sp.name }}</h4>
+          <span class="status status-school">{{ sp.purpose }}</span>
+        </div>
+        {% if sp.description %}<p class="project-desc">{{ sp.description|safe }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 
+  {% if resume.interests %}
   <section class="node" id="interests">
     <span class="node-dot" aria-hidden="true"></span>
-    <h3 class="section-label">PERSONAL INTERESTS</h3>
-    <div class="interests-list">
-      {% for i in resume.interests %}
-      <div class="interests-item reveal">
-        <p class="exp-period">{{ i.period }}</p>
-        <div class="exp-body">
-          <h4>{{ i.Grouping }} <span class="exp-org">— {{ i.Activities }}</span></h4>
-          <p>{{ i.summary }}</p>
+    <h3 class="section-label">INTERESTS</h3>
+    <div class="skill-groups">
+      {% for group in resume.interests %}
+      <div class="skill-group reveal">
+        <p class="skill-group-label">{{ group.grouping|upper }}</p>
+        <div class="skill-chips">
+          {% for item in group.activities.split(', ') %}
+          <span class="chip">{{ item }}</span>
+          {% endfor %}
         </div>
       </div>
       {% endfor %}
     </div>
   </section>
-
+  {% endif %}
 
 </main>
 

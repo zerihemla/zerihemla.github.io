@@ -30,6 +30,10 @@ def build():
         shutil.rmtree(static_out)
     shutil.copytree(STATIC, static_out)
 
+    # Tells GitHub Pages to skip Jekyll processing, so it serves
+    # index.html as-is instead of falling back to README.md behavior.
+    (OUTPUT / ".nojekyll").touch()
+
     print(f"Built site -> {OUTPUT / 'index.html'}")
 
 
